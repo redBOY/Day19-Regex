@@ -6,16 +6,14 @@ import java.util.regex.Matcher;
 public class UserReg {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the first name: ");
-        String firstName = sc.next();
-        Pattern pattern = Pattern.compile("^[A-Z]{1}[a-z]{2,}$");
-        Matcher match = pattern.matcher(firstName);
-        if (match.find() && match.group().equals(firstName)) {
-            System.out.println("valid FirstName");
+        System.out.println("Enter user email");
+        String email = sc.nextLine();
+
+        boolean validate_email= Pattern.matches("^[a-z]*.[a-z]+@[a-z]+.[a-z]{2,3}(.[a-z]{2,})*$",email);
+        if (validate_email) {
+            System.out.println("email is valid");
         } else {
-            System.out.println("invalid FirstName");
+            System.out.println("email is invalid");
         }
-
     }
-
 }
